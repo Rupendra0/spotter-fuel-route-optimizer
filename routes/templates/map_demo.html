@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotter — Fuel-Efficient Route Optimization</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛽</text></svg>">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -143,8 +144,12 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         const map = L.map('map').setView([39.8283, -98.5795], 4);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+        
+        // CartoDB Voyager Tile Layer - Free, high-speed, no 403 blocks on localhost
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
         }).addTo(map);
 
         let currentLayers = [];
@@ -253,7 +258,7 @@
 
             // Draw route polyline
             const coords = data.route.geometry.coordinates.map(pt => [pt[1], pt[0]]);
-            const polyline = L.polyline(coords, { color: '#38bdf8', weight: 5, opacity: 0.85 }).addTo(map);
+            const polyline = L.polyline(coords, { color: '#0284c7', weight: 5, opacity: 0.9 }).addTo(map);
             currentLayers.push(polyline);
 
             // Add Start marker
