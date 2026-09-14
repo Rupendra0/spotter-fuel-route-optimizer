@@ -1,0 +1,175 @@
+﻿{
+	"info": {
+		"_postman_id": "890d9614-2c09-4bf4-b152-4753f7f8f901",
+		"name": "Spotter Fuel Route Optimizer API",
+		"description": "Collection demonstrating the Fuel-Efficient Route Optimization API with start and destination locations in the USA.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/health/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"health",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Route 1: LA to Las Vegas (< 500 miles, 0 stops)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start\": \"Los Angeles, CA\",\n  \"finish\": \"Las Vegas, NV\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/routes/optimize/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"routes",
+						"optimize",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Route 2: New York to Chicago (~793 miles, multi-stop)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Chicago, IL\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/routes/optimize/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"routes",
+						"optimize",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Route 3: Dallas to Atlanta (~780 miles, multi-stop)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start\": \"Dallas, TX\",\n  \"finish\": \"Atlanta, GA\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/routes/optimize/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"routes",
+						"optimize",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validation Error: Missing Fields (400)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/routes/optimize/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"routes",
+						"optimize",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
