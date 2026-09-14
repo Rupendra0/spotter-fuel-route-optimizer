@@ -145,10 +145,9 @@
     <script>
         const map = L.map('map').setView([39.8283, -98.5795], 4);
         
-        // CartoDB Voyager Tile Layer - Free, high-speed, no 403 blocks on localhost
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
+        // Esri WorldStreetMap - 100% Free, No API key, No watermarks, Clean highways & cities
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, USGS, NPS',
             maxZoom: 19
         }).addTo(map);
 
